@@ -37,6 +37,7 @@ module.exports = {
     'spaced-comment': 'error',
     quotes: ['error', 'single'],
     'no-duplicate-imports': 'error',
+    '@typescript-eslint/ban-ts-comment': 'allow-with-description',
   },
   settings: {
     'import/resolver': {
