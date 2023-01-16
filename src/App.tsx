@@ -1,26 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+
+import { Pikachu } from './components/pikachu'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <section className="grid h-screen grid-cols-1 place-items-center content-center gap-4">
+      <h1 className="font-comic text-5xl font-bold text-amber-600">
+        Pika Clicker
+      </h1>
+      <Pikachu name="pikachu" width="250" height="250" />
+    </section>
+  )
 }
 
-export default App;
+export default App
