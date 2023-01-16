@@ -35,13 +35,21 @@ const getInitialUpgrades = () => ({
   },
 })
 
-interface AppState {
-  pikachus: number
-  increase: (by: number) => void
+export interface AppState {
+  score: number
+  // purchasedUpgrades: [{}]
+  actions: {
+    increase: (by: number) => void
+  }
 }
 
 // @ts-ignore:  AppState does not accept an array like T, that's why ignoring this rule for the moment
 export const [usePikachuStore, store] = create<AppState>()((set, get) => ({
-  pikachus: 0,
-  increase: (by) => set((state) => ({ pikachus: state.pikachus + by })),
+  score: 0,
+  purchasedUpgrades: [],
+  actions: {
+    increase(amount = 1) {
+      set((state) => ({ score: state.score + amount }))
+    },
+  },
 }))

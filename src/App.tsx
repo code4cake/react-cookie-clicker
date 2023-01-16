@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Pikachu } from './components/pikachu'
 
+import { AppState, usePikachuStore } from './state/state'
+
 function Score() {
   // const score = usePikachuStore((s) => s.score)
   return (
@@ -14,14 +16,14 @@ function Score() {
 }
 
 function BigPikachuButton() {
-  // const actions = usePikachuStore((s) => s.actions)
+  const actions = usePikachuStore((store: AppState) => store.actions)
   // return <button className="cookieBtn" onClick={() => actions.changeScore(1)} />
   return (
     <button
       className="pikachuBtn"
       onClick={() => {
         console.log(' I was clicked')
-        // actions.changeScore(1)
+        actions.increase(1)
       }}
     />
   )
