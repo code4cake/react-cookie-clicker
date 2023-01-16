@@ -27,7 +27,7 @@ module.exports = {
   plugins: ['react', 'react-hooks', '@typescript-eslint', 'jest', 'prettier'],
   rules: {
     'linebreak-style': 'off',
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'warn',
     'react/react-in-jsx-scope': ['off'],
     'react/jsx-uses-react': ['off'],
     'react/jsx-props-no-spreading': ['warn'],

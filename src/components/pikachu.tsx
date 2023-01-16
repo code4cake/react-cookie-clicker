@@ -152,7 +152,7 @@ export function Pikachu({
         fill="black"
         stroke="black"
         strokeWidth="4"
-        stroke-line-join="round"
+        strokeLinejoin="round"
       />
       <path
         d="M511.152 681C511.221 678.871 511.306 676.866 511.404 675C536.444 657.537 606.108 592.78 636.491 543.5L521 628.5C473.5 686 499 691.5 511.152 681Z"
