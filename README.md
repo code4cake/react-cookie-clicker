@@ -6,7 +6,7 @@ This is heavily inspired in the Cookie Clicker game.
 
 ## See it Live
 
-Click here to see the [live version]()
+Click here to see the [live version](https://melodic-platypus-6e16a5.netlify.app)
 
 ## Technologies Used
 
@@ -20,14 +20,14 @@ Check the pkg.json for a complete list. But the most notable ones are:
 ## Develop
 
 1. `git clone` project
-2. `yarn install` to install dependencies
-3. `yarn run start ` to start developing
+2. `yarn install # or npm run install` to install dependencies
+3. `yarn run start # or npm run start` to start developing
 
 Other scripts worth mentioning
 
-- `yarn run lint` lints the project with `eslint`
-- `yarn run format` formats the code with `prettier`
-- `yarn run test` runs the test with `@testing-library/react && jest`
+- `yarn run lint # or npm run lint` lints the project with `eslint`
+- `yarn run format # or npm run format` formats the code with `prettier`
+- `yarn run test # or npm run test` runs the test with `@testing-library/react && jest`
 
 ---
 
