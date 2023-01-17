@@ -10,7 +10,7 @@ function Score() {
   const score = usePikachuStore((store: AppState) => store.score)
 
   return (
-    <div className="space-evenly flexgst mt-14">
+    <div className="space-evenly flex">
       <input
         readOnly
         className="w-14 shrink text-5xl text-red-500"
@@ -35,7 +35,7 @@ function NewGameButton() {
   return (
     <button
       onClick={() => actions.newGame()}
-      className="rounded-md border border-yellow-600 p-4 font-comic text-3xl font-bold text-yellow-500"
+      className="w-80 rounded-md border border-yellow-600 p-4 font-comic text-3xl font-bold text-yellow-500"
     >
       New Game
     </button>
@@ -55,9 +55,9 @@ function UpgradeList() {
       <ul>
         {Object.keys(upgrades)
           .map((key: any) => {
-            console.log('Object.keys(upgrades)', Object.keys(upgrades))
-            console.log('key', key)
-            console.log('upgrades[key]', upgrades[key])
+            // console.log('Object.keys(upgrades)', Object.keys(upgrades))
+            // console.log('key', key)
+            // console.log('upgrades[key]', upgrades[key])
             return upgrades[key]
           })
           .map((upgrade) => (
@@ -105,7 +105,7 @@ function AutoClickers() {
   const purchasedUpgrades = usePikachuStore(
     (store: AppState) => store.purchasedUpgrades,
   )
-  console.log(purchasedUpgrades)
+  // console.log(purchasedUpgrades)
   return purchasedUpgrades.map((upgrade: any) => (
     <AutoClicker key={upgrade.id} upgrade={upgrade} />
   ))
@@ -113,7 +113,7 @@ function AutoClickers() {
 
 function App() {
   return (
-    <div className="grid h-screen grid-cols-1 place-items-center content-center gap-10">
+    <div className="m-4 grid h-full grid-cols-1 place-items-center content-center gap-10">
       <Score />
       <section className="grid grid-cols-1  content-center gap-2">
         <h1 className="font-comic text-5xl font-bold text-yellow-600">
