@@ -3,3 +3,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.pikachuBtn {
+  width: 250px;
+  height: 250px;
+  /* border-radius: 100%; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(./assets/pikachu.svg);
+  border: none;
+  transition: transform 0.1s;
+}
+
+.pikachuBtn:active {
+  transform: scale(0.95);
+}
+
+.pikachuBtn:focus {
+  outline: none;
+}
