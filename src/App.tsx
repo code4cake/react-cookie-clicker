@@ -6,9 +6,14 @@ import { AppState, usePikachuStore } from './state/state'
 
 function Score() {
   const score = usePikachuStore((store: AppState) => store.score)
+
   return (
     <div className="space-evenly flex">
-      <input className="w-14 shrink text-5xl text-red-500" value={score} />
+      <input
+        readOnly
+        className="w-14 shrink text-5xl text-red-500"
+        value={score}
+      />
       <Pikachu name="pikachu" width="50" height="50" />
     </div>
   )
@@ -16,27 +21,18 @@ function Score() {
 
 function BigPikachuButton() {
   const actions = usePikachuStore((store: AppState) => store.actions)
-  // return <button className="cookieBtn" onClick={() => actions.changeScore(1)} />
+
   return (
-    <button
-      className="pikachuBtn"
-      onClick={() => {
-        console.log(' I was clicked')
-        return actions.changeScore(1)
-      }}
-    />
+    <button className="pikachuBtn" onClick={() => actions.changeScore(1)} />
   )
 }
 
 function NewGameButton() {
-  // const actions = usePikachuStore((s) => s.actions)
+  const actions = usePikachuStore((store) => store.actions)
+
   return (
-    // <button onClick={() => actions.newGame()} className="my-12">
     <button
-      onClick={() => {
-        console.log('I was clicked for a new game')
-        // actions.newGame()
-      }}
+      onClick={() => actions.newGame()}
       className="rounded-md border border-yellow-600 p-4 font-comic text-3xl font-bold text-yellow-500"
     >
       New Game

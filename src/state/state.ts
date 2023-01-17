@@ -35,10 +35,17 @@ const getInitialUpgrades = () => ({
   },
 })
 
+interface IUpgrade {
+  [key: number]: {
+    id: number
+    cps: number
+    cost: number
+    name: string
+  }
+}
 export interface AppState {
   score: number
-  // purchasedUpgrades: [{}]
-  upgrades: any
+  upgrades: IUpgrade
   purchasedUpgrades: []
   actions: {
     changeScore: (amount: number) => void
@@ -46,7 +53,6 @@ export interface AppState {
   }
 }
 
-// @ts-ignore:  AppState does not accept an array like T, that's why ignoring this rule for the moment
 export const usePikachuStore = create<AppState>()((set, get) => ({
   score: getInitialScore(),
   upgrades: getInitialUpgrades(),
@@ -56,7 +62,6 @@ export const usePikachuStore = create<AppState>()((set, get) => ({
       set((state) => ({ score: state.score + amount }))
     },
     newGame() {
-      console.log('new game')
       set({
         score: getInitialScore(),
         upgrades: getInitialUpgrades(),
@@ -65,6 +70,16 @@ export const usePikachuStore = create<AppState>()((set, get) => ({
     },
   },
 }))
+
+usePikachuStore.setState(
+  JSON.parse(window.localStorage.getItem('pikachuClickerState') as string),
+)
+
+usePikachuStore.subscribe((state) => {
+  const stateCopy = { ...state } as Partial<AppState>
+  delete stateCopy['actions']
+  window.localStorage.setItem('pikachuClickerState', JSON.stringify(stateCopy))
+})
 
 // @ts-ignore:  AppState does not accept an array like T, that's why ignoring this rule for the moment
 // export const [useCookieStore, store] = create<AppState>()((set, get) => ({
