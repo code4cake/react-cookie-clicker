@@ -7638,7 +7638,14 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
-react@^18.2.0:
+react-use-timeout@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-use-timeout/-/react-use-timeout-1.0.0.tgz#d156e146d33239ccb5a217c369f37bc2e56bbe93"
+  integrity sha512-WY4KTWH4kIRlGsmaush+zYo68B/pFY2HvSIPEf7cO5abv9bEVAmkUjggVOUXZaK8Y51fW7Iyr32VvIsYmD9Jhg==
+  dependencies:
+    react ">=16.8.0"
+
+react@>=16.8.0, react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==

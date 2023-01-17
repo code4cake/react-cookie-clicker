@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
+
+import { useInterval } from 'react-use-timeout'
 
 import { Pikachu } from './components/pikachu'
 
@@ -8,7 +10,7 @@ function Score() {
   const score = usePikachuStore((store: AppState) => store.score)
 
   return (
-    <div className="space-evenly mt-14 flex">
+    <div className="space-evenly flexgst mt-14">
       <input
         readOnly
         className="w-14 shrink text-5xl text-red-500"
@@ -80,6 +82,35 @@ function UpgradeList() {
   )
 }
 
+function AutoClicker({ upgrade }: any) {
+  const actions = usePikachuStore((store: AppState) => store.actions)
+  const greaterThan1000cps = upgrade.cps > 1000
+  const delay = Math.max(1000 / upgrade.cps, 1)
+  const incAmount = greaterThan1000cps ? upgrade.cps / 1000 : 1
+
+  const incScore = useCallback(
+    () => actions.changeScore(incAmount),
+    [actions, incAmount],
+  )
+  const timeout = useInterval(incScore, delay)
+
+  useEffect(() => {
+    timeout.start()
+  }, [])
+
+  return null
+}
+
+function AutoClickers() {
+  const purchasedUpgrades = usePikachuStore(
+    (store: AppState) => store.purchasedUpgrades,
+  )
+  console.log(purchasedUpgrades)
+  return purchasedUpgrades.map((upgrade: any) => (
+    <AutoClicker key={upgrade.id} upgrade={upgrade} />
+  ))
+}
+
 function App() {
   return (
     <div className="grid h-screen grid-cols-1 place-items-center content-center gap-10">
@@ -92,6 +123,7 @@ function App() {
          */}
         <BigPikachuButton />
       </section>
+      <AutoClickers />
       <UpgradeList />
       <NewGameButton />
     </div>
