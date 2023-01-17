@@ -5,11 +5,10 @@ import { Pikachu } from './components/pikachu'
 import { AppState, usePikachuStore } from './state/state'
 
 function Score() {
-  // const score = usePikachuStore((s) => s.score)
+  const score = usePikachuStore((store: AppState) => store.score)
   return (
     <div className="space-evenly flex">
-      {/* <input className="text-red-500" value={score} /> */}
-      <input className="w-14 shrink text-5xl text-red-500" value={0} />
+      <input className="w-14 shrink text-5xl text-red-500" value={score} />
       <Pikachu name="pikachu" width="50" height="50" />
     </div>
   )
@@ -23,7 +22,7 @@ function BigPikachuButton() {
       className="pikachuBtn"
       onClick={() => {
         console.log(' I was clicked')
-        actions.increase(1)
+        return actions.changeScore(1)
       }}
     />
   )
