@@ -8,10 +8,7 @@ function Score() {
   const score = usePikachuStore((store: AppState) => store.score)
 
   return (
-    <div
-      className="space-evenly mt-14 flex
-    "
-    >
+    <div className="space-evenly mt-14 flex">
       <input
         readOnly
         className="w-14 shrink text-5xl text-red-500"
