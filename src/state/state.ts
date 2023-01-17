@@ -12,30 +12,30 @@ const getInitialUpgrades = () => ({
   2: {
     id: 2,
     cps: 5,
-    cost: 50,
-    name: 'grandma',
+    cost: 20,
+    name: 'pokebull',
   },
   3: {
     id: 3,
     cps: 25,
-    cost: 100,
-    name: 'shipment',
+    cost: 30,
+    name: 'bulbasaur',
   },
   4: {
     id: 4,
     cps: 100,
-    cost: 1000,
-    name: 'truckload',
+    cost: 40,
+    name: 'charmander',
   },
   5: {
     id: 5,
     cps: 500,
-    cost: 10000,
-    name: 'factory',
+    cost: 50,
+    name: 'shinny',
   },
 })
 
-interface IUpgrade {
+export interface IUpgrade {
   [key: number]: {
     id: number
     cps: number
@@ -46,10 +46,11 @@ interface IUpgrade {
 export interface AppState {
   score: number
   upgrades: IUpgrade
-  purchasedUpgrades: []
+  purchasedUpgrades: [] | any
   actions: {
     changeScore: (amount: number) => void
     newGame: () => void
+    purchase: (upgradeId: number) => void
   }
 }
 
@@ -67,6 +68,15 @@ export const usePikachuStore = create<AppState>()((set, get) => ({
         upgrades: getInitialUpgrades(),
         purchasedUpgrades: [],
       })
+    },
+    purchase(upgradeId) {
+      const { upgrades, actions } = get()
+      const upgrade = upgrades[upgradeId]
+
+      actions.changeScore(-upgrade.cost)
+      set((state) => ({
+        purchasedUpgrades: [...state.purchasedUpgrades, upgrade],
+      }))
     },
   },
 }))
