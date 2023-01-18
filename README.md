@@ -4,6 +4,8 @@ Let's see how many pikachus you can get. After all you need to catch them all ðŸ
 
 This is heavily inspired in the Cookie Clicker game.
 
+![pikachu-clicker](https://raw.githubusercontent.com/code4cake/react-cookie-clicker/main/public/pikachu-clicker.png)
+
 ## See it Live
 
 Click here to see the [live version](https://melodic-platypus-6e16a5.netlify.app)
